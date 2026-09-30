@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <p class="total-label">Total spent</p>
+    <p id="total" class="total">₹0.00</p>
+    <div id="breakdown" class="breakdown"></div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2 id="form-title">Add an expense</h2>
+      <form id="expense-form">
+        <label>Title <input id="title" required maxlength="80" placeholder="e.g. Lunch at canteen"></label>
+        <label>Amount (₹) <input id="amount" type="number" step="0.01" min="0.01" required></label>
+        <label>Category
+          <select id="category">
+            <option>Food</option><option>Travel</option><option>Bills</option>
+            <option>Shopping</option><option>Health</option><option selected>Other</option>
+          </select>
+        </label>
+        <label>Date <input id="date" type="date" required></label>
+        <label>Note <input id="note" maxlength="200" placeholder="Optional"></label>
+        <div class="actions">
+          <button type="submit" id="submit-btn">Save expense</button>
+          <button type="button" id="cancel-btn" class="ghost" hidden>Cancel edit</button>
+        </div>
+        <p id="error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-head">
+        <h2>Your expenses</h2>
+        <select id="filter" aria-label="Filter by category">
+          <option value="">All categories</option>
+          <option>Food</option><option>Travel</option><option>Bills</option>
+          <option>Shopping</option><option>Health</option><option>Other</option>
+        </select>
+      </div>
+      <ul id="list" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
